@@ -79,3 +79,23 @@ Choose a simulation number:
 
 ### Results
 ![Results](img/gatlingscreen.png)
+
+## Editing The Tests
+When creating the test from HAR files this creates a `.scala` file which is used to edit and modify the tests
+```
+class SreKieronTestAppWithPosts extends Simulation {
+
+        val httpProtocol = http
+                .baseUrl("http://34.243.55.216")
+                .inferHtmlResources()
+
+```
+Here we see the `.baseUrl` which is used to tell the script what the target IP which is being tested.
+
+### Changes to the Test
+```
+        setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+}
+
+```
+This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
