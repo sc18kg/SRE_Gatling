@@ -59,9 +59,23 @@
 7. Once thats loaded in, do NOT click anything other than `Start`
 8. Navigate to your directory and you should see the created file with the name attached.
 9. Run the command `./gatling.bat` and this should bring up a display.
-![Display](img/here.png)
+```
+Choose a simulation number:
+     [0] RecordedSimulation
+     [1] SreKieronSpartaTest
+     [2] SreKieronSpartaTest2
+     [3] SreKieronTestAppWithPosts
+     [4] computerdatabase.BasicSimulation
+     [5] computerdatabase.advanced.AdvancedSimulationStep01
+     [6] computerdatabase.advanced.AdvancedSimulationStep02
+     [7] computerdatabase.advanced.AdvancedSimulationStep03
+     [8] computerdatabase.advanced.AdvancedSimulationStep04
+     [9] computerdatabase.advanced.AdvancedSimulationStep05
+
+```
 10. Select the number and press enter
-11. Once complete an output `.html` file should be printed to the console, Paste this in your internet browser to view the results!
+11. Write a description for the task 
+12. Once complete an output `.html` file should be printed to the console, Paste this in your internet browser to view the results!
 
 ### Results
 ![Results](img/gatlingscreen.png)
