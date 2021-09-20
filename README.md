@@ -62,5 +62,6 @@
 ![Display](img/here.png)
 10. Select the number and press enter
 11. Once complete an output `.html` file should be printed to the console, Paste this in your internet browser to view the results!
-![Results](img/results.png)
+
 ### Results
+![Results](img/gatlingscreen.png)
