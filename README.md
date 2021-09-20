@@ -96,6 +96,5 @@ Here we see the `.baseUrl` which is used to tell the script what the target IP w
 ```
         setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
 }
-
 ```
 This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
