@@ -57,6 +57,16 @@ Spike testing is a type of performance testing in which an application receives 
 - Scalable
 - Highly Available
 
+## What Should be Monitored for an Internet Facing Application
+### Resource Monitoring
+Also known as server monitoring or infrastructure monitoring, this operates by gathering data on how your servers are running. Resource monitoring tools report on RAM usage, CPU load, and remaining disk space. In architecture with physical servers, information on hardware health—like CPU temperatures and component uptime—can also be helpful to avoid server failure. In cloud-based environments, aggregates of your virtual server system are more useful. 
+
+### Application Performance Monitoring (APM)
+APM is the process of monitoring the application environment from an IT perspective using various techniques, including live code profiling, exception tracking, and distributed tracing. In addition to APM, some tools—like AppOptics—also monitor the underlying infrastructure of the application environment, such as application hosts, database servers, and cloud services. APM typically requires application instrumentation to monitor, and it can sometimes affect the application performance or its underlying infrastructure
+
+### Network monitoring 
+This looks at the data coming in and out of your computer network. Your monitoring tool captures all incoming requests and outgoing responses across all components such as switches, firewalls, servers, and more. The data collected from network monitoring can be as simple as the total amount of data coming and going or as nuanced as the frequency of particular requests
+
 ## Steps to Complete Gatling Testing
 ### Recording the HAR file
 1. Navigate to the HTTP which you would like perform testing on
