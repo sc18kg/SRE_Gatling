@@ -1,5 +1,5 @@
 # SRE Gatling
-
+## What is Gatling
 ## Gatling File Structure
 ----
 ```
@@ -35,6 +35,16 @@
 - `user-files` is the parent directory of `resources` and `simulations`
 - `resources` contains
 - `simulations` contains the `.scala` files which are created after the `recorder.bat` has been used and a `HAR file` has been input.
+
+## What is Performance Testing
+### Load Testing
+### Stress Testing
+### Soak Testing
+### Spike Testing
+
+## User Experience/Journey
+- Scalable
+- Highly Available
 
 ## Steps to Complete Gatling Testing
 ### Recording the HAR file
