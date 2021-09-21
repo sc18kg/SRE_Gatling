@@ -1,5 +1,8 @@
 # SRE Gatling
+![overall](img/overall-diagram.png)
 ## What is Gatling
+Gatling is a load testing tool which can be used for your integrated development environment, version control systems and continuous integration solutions. It does not have its own solution, rather it integrates with your existing solutions.  It is built on top of Akka, which is a toolkit for building distributed message driven applications. It is a distributed framework which will allow for fully asynchronous computing. It is a small entity within code communicating with each other through messaging.
+
 ## Gatling File Structure
 ----
 ```
@@ -38,9 +41,17 @@
 
 ## What is Performance Testing
 ### Load Testing
+A load test is a type of performance test that checks how systems function under a heavy number of concurrent virtual users performing transactions over a certain period of time. In other words, the test measures how systems handle heavy load volumes.
+
 ### Stress Testing
+A stress test is a type of performance test that checks the upper limits of your system by testing it under extreme loads. Stress tests examine how the system behaves under intense loads and how it recovers when going back to normal usage. Are the KPIs like throughput and response time the same as before spike in load? Stress tests also look for memory leaks, slowdowns, security issues, and data corruption.
+
 ### Soak Testing
+Soak testing (otherwise known as endurance testing, capacity testing, or longevity testing) involves testing the system to detect performance-related issues such as stability and response time by requesting the designed load on a system.
+The system is then evaluated to see whether it could perform well under a significant load for an extended period, thereby measuring its reaction and analyzing its behavior under sustained use. Soak testing is a type of load testing.
+
 ### Spike Testing
+Spike testing is a type of performance testing in which an application receives a sudden and extreme increase or decrease in load. The goal of spike testing is to determine the behavior of a software application when it receives extreme variations in traffic. Spike testing addresses more than just an application's maximum load; it also verifies an application's recovery time between activity spikes. The word “spike” refers to the sudden increase or decrease in traffic.
 
 ## User Experience/Journey
 - Scalable
