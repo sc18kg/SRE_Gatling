@@ -206,6 +206,9 @@ You can deliver the notification from SNS to a variety of streams such as:
 You can subscribe to Amazon Simple Notification Service (Amazon SNS) topics for one or more Amazon SQS queues. When you publish a message to a topic, Amazon SNS sends the message to each subscribed queue. Amazon SQS manages the subscription and any necessary permissions.
 This is where the SNS delivers a notification to an application apposed to a person an example of this would be to send it to Amazon SQS which is used for Delivering events to queues for application integration purposes.
 
+## Simple Queue Service (SQS)
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS eliminates the complexity and overhead associated with managing and operating message-oriented middleware, and empowers developers to focus on differentiating work. Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
+
 ### The Results
 Here is an example email which I have recieved from AWS alerting me of my EC2 instance in the AutoScaling group has triggered an alarm, this in turn sent out an email to my endpoint email address.
 ![alarm-email](img/alarm-email.png)
