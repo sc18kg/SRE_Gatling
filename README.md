@@ -129,3 +129,10 @@ Here we see the `.baseUrl` which is used to tell the script what the target IP w
 }
 ```
 This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
+
+## Auto Scaling
+![alarm-email](img/alarm-email.png)
+![autoscale-remove](img/auto-remove1.png)
+![dashboard](img/dashboard.png)
+![graphmet](img/graphmetric.png)
+![auto](img/autoscale-down1.png)
