@@ -54,7 +54,8 @@ The system is then evaluated to see whether it could perform well under a signif
 Spike testing is a type of performance testing in which an application receives a sudden and extreme increase or decrease in load. The goal of spike testing is to determine the behavior of a software application when it receives extreme variations in traffic. Spike testing addresses more than just an application's maximum load; it also verifies an application's recovery time between activity spikes. The word “spike” refers to the sudden increase or decrease in traffic.
 
 ## Scaling and Scaling Out
-
+The idea of scaling cloud resources may be intuitive. As your cloud workload changes it may be necessary to increase infrastructure to support increasing load or it may make sense to decrease infrastructure when demand is low.  The “up or out” part is perhaps less intuitive. Scaling out is adding more equivalently functional components in parallel to spread out a load. This would be going from two load-balanced web server instances to three instances. Scaling up, in contrast, is making a component larger or faster to handle a greater load.  This would be moving your application to a virtual server (VM) with 2 CPU to one with 3 CPUs.  For completeness, scaling down refers to decreasing your system resources, regardless of whether you were using the up or out approach.
+ 
 ## User Experience/Journey
 - Scalable
 - Highly Available
@@ -132,13 +133,77 @@ Here we see the `.baseUrl` which is used to tell the script what the target IP w
 ```
 This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
 
-## Auto Scaling
+## Auto Scaling policies
+```
+resource "aws_autoscaling_policy" "sre_kieron_scaledown" {
+  name = "sre_kieron_scaledown"
+  scaling_adjustment = -1
+  adjustment_type = "ChangeInCapacity"
+  cooldown = 300
+  autoscaling_group_name = aws_autoscaling_group.sre_kieron_autoscalegroup.name
+
+}
+```
 ![auto](img/autoscale-down1.png)
 ![autoscale-remove](img/auto-remove1.png)
+
+## Metrics and Dashboard
 ![graphmet](img/graphmetric.png)
 ![dashboard](img/dashboard.png)
 
+## Creating an Alarm
+1. Navigate to `CloudWatch`
+2. Click `Create Alarm`
+3. Press `Select Metric` followed by what you would like the alarm to trigger by in my example I used `CPUUtilization`
+4. To get to my metric click `EC2` > `By Auto Scaling Group` then find your `AutoScalingGroupName` then finally tick the box for `CPUUtilization`
+5. Click `Select Metric`
+6. This will bring you to a page where you specify the Metric and Conditions
+7. Here I changed the `Period` to 1 minute
+8. Condition I used `Static` , `Less than < threshold` and for the define the value `20`
+9. Click `Next`
+### At this stage you can either create your `SNS Topic` or `Create new topic` in this example I will chose the latter
+10. Select `Create new topic` and enter the topic name which should follow a naming convention for us `SRE_name_whatitis`
+11. Email endpoint is the address which will recieve the notification
+### Here we have the option to add Auto Scaling action
+12. Select `In alarm` and Resource type as `EC2 Auto Scaling group` and select your group from the dropdown menu
+13. Take the following action should be available and here we select what will happen once the alarm is triggered for me its scale down (remove 1 instance)
+14. Click `Next`
+15. Add your alarm name and a description 
+16. Then finally click `Create`
+
+### Alternate way would be to user Terraform
+```
+resource "aws_cloudwatch_metric_alarm" "sre_kieron_sd_alarm" {
+  alarm_name = "sre_kieron_sd_alarm"
+  comparison_operator = "LessThanThreshold"
+  metric_name = "CPUUtilizaton"
+  statistic = "Average"
+  threshold = "20"
+  period = "60"
+  evaluation_periods = "2"
+  namespace = "AWS/EC2"
+  alarm_description = "Monitors ASG EC2 average CPU usage "
+  alarm_actions = [aws_autoscaling_policy.sre_kieron_scaledown.arn]
+}
+
+```
+
 ## Simple Notification Service (SNS)
-### Setting up SNS
+1. Navigate to the SNS dashboard and select `Topics`
+2. If you followed the previous steps your topic should be available
+3. Once a topic is created there is a `subsription` which is paired, This needs to be confirmed by an email which is sent to the endpoint set in setup
+4. Once confirmed your set-up is complete
+
+### SNS Application 2 Person (A2P)
+You can deliver the notification from SNS to a variety of streams such as:
+- SMS Deliver events to mobile phones as text messages.
+- Email Deliver events to inboxes as email messages.
+- Platform endpoint Deliver events to mobile phones as native push notifications
+
+### SNS Application 2 Application (A2A)
+You can subscribe to Amazon Simple Notification Service (Amazon SNS) topics for one or more Amazon SQS queues. When you publish a message to a topic, Amazon SNS sends the message to each subscribed queue. Amazon SQS manages the subscription and any necessary permissions.
+This is where the SNS delivers a notification to an application apposed to a person an example of this would be to send it to Amazon SQS which is used for Delivering events to queues for application integration purposes.
+
 ### The Results
+Here is an example email which I have recieved from AWS alerting me of my EC2 instance in the AutoScaling group has triggered an alarm, this in turn sent out an email to my endpoint email address.
 ![alarm-email](img/alarm-email.png)
