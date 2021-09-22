@@ -1,4 +1,5 @@
 # SRE Gatling
+* [Auto Scaling policies](#Auto-Scaling-policies)
 ![overall](img/overall-diagram.png)
 ## What is Gatling
 Gatling is a load testing tool which can be used for your integrated development environment, version control systems and continuous integration solutions. It does not have its own solution, rather it integrates with your existing solutions.  It is built on top of Akka, which is a toolkit for building distributed message driven applications. It is a distributed framework which will allow for fully asynchronous computing. It is a small entity within code communicating with each other through messaging.
