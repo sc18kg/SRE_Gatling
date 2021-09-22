@@ -1,5 +1,5 @@
 # SRE Gatling
-# [Auto Scaling policies](#Auto-Scaling-policies)
+* [Auto Scaling policies](#Auto-Scaling-policies)
 ----
 ![overall](img/overall-diagram.png)
 ## What is Gatling
