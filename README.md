@@ -55,6 +55,7 @@ Spike testing is a type of performance testing in which an application receives 
 
 ## Scaling and Scaling Out
 The idea of scaling cloud resources may be intuitive. As your cloud workload changes it may be necessary to increase infrastructure to support increasing load or it may make sense to decrease infrastructure when demand is low.  The “up or out” part is perhaps less intuitive. Scaling out is adding more equivalently functional components in parallel to spread out a load. This would be going from two load-balanced web server instances to three instances. Scaling up, in contrast, is making a component larger or faster to handle a greater load.  This would be moving your application to a virtual server (VM) with 2 CPU to one with 3 CPUs.  For completeness, scaling down refers to decreasing your system resources, regardless of whether you were using the up or out approach.
+![upvout](img/upvsout.jpeg)
  
 ## User Experience/Journey
 - Scalable
@@ -134,6 +135,7 @@ Here we see the `.baseUrl` which is used to tell the script what the target IP w
 This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
 
 ## Auto Scaling policies
+![auto](img/autoscale.png)
 ```
 resource "aws_autoscaling_policy" "sre_kieron_scaledown" {
   name = "sre_kieron_scaledown"
