@@ -54,7 +54,8 @@ The system is then evaluated to see whether it could perform well under a signif
 Spike testing is a type of performance testing in which an application receives a sudden and extreme increase or decrease in load. The goal of spike testing is to determine the behavior of a software application when it receives extreme variations in traffic. Spike testing addresses more than just an application's maximum load; it also verifies an application's recovery time between activity spikes. The word “spike” refers to the sudden increase or decrease in traffic.
 
 ## Scaling and Scaling Out
-
+The idea of scaling cloud resources may be intuitive. As your cloud workload changes it may be necessary to increase infrastructure to support increasing load or it may make sense to decrease infrastructure when demand is low.  The “up or out” part is perhaps less intuitive. Scaling out is adding more equivalently functional components in parallel to spread out a load. This would be going from two load-balanced web server instances to three instances. Scaling up, in contrast, is making a component larger or faster to handle a greater load.  This would be moving your application to a virtual server (VM) with 2 CPU to one with 3 CPUs.  For completeness, scaling down refers to decreasing your system resources, regardless of whether you were using the up or out approach.
+ 
 ## User Experience/Journey
 - Scalable
 - Highly Available
