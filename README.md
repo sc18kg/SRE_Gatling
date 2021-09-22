@@ -193,6 +193,16 @@ resource "aws_cloudwatch_metric_alarm" "sre_kieron_sd_alarm" {
 3. Once a topic is created there is a `subsription` which is paired, This needs to be confirmed by an email which is sent to the endpoint set in setup
 4. Once confirmed your set-up is complete
 
+### SNS Application 2 Person (A2P)
+You can deliver the notification from SNS to a variety of streams such as:
+- SMS Deliver events to mobile phones as text messages.
+- Email Deliver events to inboxes as email messages.
+- Platform endpoint Deliver events to mobile phones as native push notifications
+
+### SNS Application 2 Application (A2A)
+You can subscribe to Amazon Simple Notification Service (Amazon SNS) topics for one or more Amazon SQS queues. When you publish a message to a topic, Amazon SNS sends the message to each subscribed queue. Amazon SQS manages the subscription and any necessary permissions.
+This is where the SNS delivers a notification to an application apposed to a person an example of this would be to send it to Amazon SQS which is used for Delivering events to queues for application integration purposes.
+
 ### The Results
 Here is an example email which I have recieved from AWS alerting me of my EC2 instance in the AutoScaling group has triggered an alarm, this in turn sent out an email to my endpoint email address.
 ![alarm-email](img/alarm-email.png)
