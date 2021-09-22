@@ -53,6 +53,8 @@ The system is then evaluated to see whether it could perform well under a signif
 ### Spike Testing
 Spike testing is a type of performance testing in which an application receives a sudden and extreme increase or decrease in load. The goal of spike testing is to determine the behavior of a software application when it receives extreme variations in traffic. Spike testing addresses more than just an application's maximum load; it also verifies an application's recovery time between activity spikes. The word “spike” refers to the sudden increase or decrease in traffic.
 
+## Scaling and Scaling Out
+
 ## User Experience/Journey
 - Scalable
 - Highly Available
@@ -131,8 +133,12 @@ Here we see the `.baseUrl` which is used to tell the script what the target IP w
 This line of code is at the end of the `.scala` file which is how you are able to change the injection of users by editing the number in the brackets from 1 to whatever value you are wanting.
 
 ## Auto Scaling
-![alarm-email](img/alarm-email.png)
-![autoscale-remove](img/auto-remove1.png)
-![dashboard](img/dashboard.png)
-![graphmet](img/graphmetric.png)
 ![auto](img/autoscale-down1.png)
+![autoscale-remove](img/auto-remove1.png)
+![graphmet](img/graphmetric.png)
+![dashboard](img/dashboard.png)
+
+## Simple Notification Service (SNS)
+### Setting up SNS
+### The Results
+![alarm-email](img/alarm-email.png)
